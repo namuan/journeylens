@@ -12,7 +12,20 @@ npx playwright install chromium
 npm run demo
 ```
 
-The demo starts a local deliberately broken rename form, runs the full pipeline using scripted model responses, and writes `runs/demo/report.md`. It exercises plumbing without credentials; it does **not** measure LLM accuracy.
+The demo starts a local deliberately broken rename form, runs the full pipeline using scripted model responses, and writes `runs/demo/report.html` plus JSON and Markdown reports. It exercises plumbing without credentials; it does **not** measure LLM accuracy.
+
+### Sample report
+
+These screenshots show the report for the local demo fixture, not a live or third-party website.
+
+![JourneyLens demo report overview](docs/screenshots/demo-report-overview.png)
+
+<details>
+<summary>Full-page report screenshot</summary>
+
+![Full JourneyLens demo report](docs/screenshots/demo-report-full.png)
+
+</details>
 
 For an actual model-driven run, start your React preview server, then:
 
@@ -77,6 +90,4 @@ npm test
 
 Integration tests run real Chromium against the local fixture with scripted model responses. They check the full pass sequence, gap exploration, fresh sessions, report generation, and refusal to confirm a finding backed only by invented evidence IDs. They do not validate a live model provider.
 
-### Validation in the build environment
-
-TypeScript checking and the model HTTP adapter test passed. Browser integration tests could not complete: the Chromium download returned an invalid archive, and no local Playwright browser was installed. Run `npx playwright install chromium` and `npm test` on your machine before relying on the browser workflow. No live model-provider run was performed.
+Validation completed locally with `npm run check`, `npm test` (3 tests passed), and `npm audit` (0 vulnerabilities). No live model-provider run was performed.
