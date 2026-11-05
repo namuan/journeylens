@@ -1,0 +1,22 @@
+{
+  "name": "journeylens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --import tsx src/main.ts",
+    "demo": "node --import tsx src/demo.ts",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "playwright": "^1.51.0",
+    "@axe-core/playwright": "^4.10.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
